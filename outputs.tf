@@ -9,6 +9,39 @@ output "project" {
   }
 }
 
+output "serviceendpoint_azurerm" {
+  description = "azuredevops_serviceendpoint_azurerm results"
+  value = {
+    for serviceendpoint in keys(azuredevops_serviceendpoint_azurerm.serviceendpoint_azurerm) :
+    serviceendpoint => {
+      id                    = azuredevops_serviceendpoint_azurerm.serviceendpoint_azurerm[serviceendpoint].id
+      service_endpoint_name = azuredevops_serviceendpoint_azurerm.serviceendpoint_azurerm[serviceendpoint].service_endpoint_name
+    }
+  }
+}
+
+output "serviceendpoint_azurecr" {
+  description = "azuredevops_serviceendpoint_azurecr results"
+  value = {
+    for serviceendpoint in keys(azuredevops_serviceendpoint_azurecr.serviceendpoint_azurecr) :
+    serviceendpoint => {
+      id                    = azuredevops_serviceendpoint_azurecr.serviceendpoint_azurecr[serviceendpoint].id
+      service_endpoint_name = azuredevops_serviceendpoint_azurecr.serviceendpoint_azurecr[serviceendpoint].service_endpoint_name
+    }
+  }
+}
+
+output "serviceendpoint_dockerregistry" {
+  description = "azuredevops_serviceendpoint_dockerregistry results"
+  value = {
+    for serviceendpoint in keys(azuredevops_serviceendpoint_dockerregistry.serviceendpoint_dockerregistry) :
+    serviceendpoint => {
+      id                    = azuredevops_serviceendpoint_dockerregistry.serviceendpoint_dockerregistry[serviceendpoint].id
+      service_endpoint_name = azuredevops_serviceendpoint_dockerregistry.serviceendpoint_dockerregistry[serviceendpoint].service_endpoint_name
+    }
+  }
+}
+
 output "serviceendpoint_generic_git" {
   description = "azuredevops_serviceendpoint_generic_git results"
   value = {

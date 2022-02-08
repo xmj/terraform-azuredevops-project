@@ -55,6 +55,7 @@ locals {
     serviceendpoint_azurecr = {
       service_endpoint_name = ""
       description           = "Managed by Terraform"
+      resource_group        = ""
     }
     serviceendpoint_dockerregistry = {
       service_endpoint_name = ""
