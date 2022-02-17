@@ -54,8 +54,8 @@ This module manages Azure DevOps Projects.
 ## Examples
 
 ```hcl
-module "azuredevops_project" {
-  source = "../modules/azure/terraform-azuredevops_project"
+module "project" {
+  source = "registry.terraform.io/T-Systems-MMS/pipelines/project"
   project = {
     project_name = {
       description = "service"
@@ -67,7 +67,7 @@ module "azuredevops_project" {
   }
   variable_group = {
     pipeline = {
-      project_id  = module.azuredevops_project.project["project_name"].id
+      project_id  = module.project.project["project_name"].id
       description = "Pipeline Settings"
       variable = {
         image = {
